@@ -15,14 +15,15 @@ app.get('/', (req: Request, res: response) => {
 })
 
 app.get('/hello', (req: Request, res: Response) => {
-    const name = req.query.name
-    
+    const {name} = req.query
+    console.log(name)
+
     if(!name) res.status(500).send({"data":{
         "message": "Hola anónimo",
     }})
     
     res.status(200).send({"data":{
-        "message": `Hola anónimo ${name}`,
+        "message": `Hola ${name}`,
     }})
 })
 
